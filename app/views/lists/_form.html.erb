@@ -1,7 +1,7 @@
-<%= form_with model: list do |f| %>
+<%= simple_form_for list do |f| %>
   <div>
-    <%= f.label :name, "Nom" %>
-    <%= f.text_field :name %>
-    <%= f.submit %>
+    <div><%= f.input :name %></div>
+    <div><%= f.input :photo, as: :file %></div>
+    <div><%= f.button :submit %></div>
   </div>
 <% end %>

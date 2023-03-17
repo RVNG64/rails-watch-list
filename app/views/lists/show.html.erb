@@ -1,9 +1,20 @@
 <h1><%= @list.name %></h1>
 
+<%= cl_image_tag @list.photo.key, class:"header_photo" %>
+
 <%= simple_form_for([@list, @bookmark]) do |f| %>
   <%= f.association :movie, collection: @movies %>
   <%= f.input :comment %>
   <%= f.submit "Add Bookmark" %>
+<% end %>
+
+<h2>Add a review</h2>
+<%= simple_form_for [@list, @review] do |f| %>
+  <div>
+    <div><%= f.label :content, "Your review" %></div>
+    <div><%= f.text_area :content %></div>
+    <div><%= f.submit "Submit" %></div>
+  </div>
 <% end %>
 
 <%= link_to 'Add a bookmark', new_list_bookmark_path(@list) %>
